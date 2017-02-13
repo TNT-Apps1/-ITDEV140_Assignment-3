@@ -6,6 +6,8 @@
 package thompson_ofakind;
 
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -33,5 +35,14 @@ public class Admin {
             System.out.println("\nPress enter key to begin.");
             scan1.nextLine();
         }
+    
+    public void goodBye(){
+        System.out.println("\n\nThanks for playing my Of a Kiind game\n\tGood Bye!");
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

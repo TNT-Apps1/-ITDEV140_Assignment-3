@@ -22,6 +22,7 @@ public class Main_app {
     public static void main(String[] args) {
         Admin admin_1 = new Admin();
         Controller controller_1 = new Controller();
+        admin_1.goodBye();
         
     }
     
