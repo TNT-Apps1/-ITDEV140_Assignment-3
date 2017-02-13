@@ -84,7 +84,7 @@ public class Player_UI {
             player.get(j).setScore(i, tempDice);
         }//end inner for loop
             
-            calc_1.getRoundWinner(i, tempSize, player);
+            calc_1.doRoundWinner(i, tempSize, player);
             
             System.out.print("\n\n*******************************");
             if(calc_1.getWinnersListSize()!=player.size()){
@@ -107,7 +107,12 @@ public class Player_UI {
         }*/
         int highScore=calc_1.getGameWinner(player);
         
-        for (int i = 0; i < player.size(); i++) {
+        if(calc_1.getQtyOfWinners()==player.size()){
+            System.out.print("\n\n*******************************");
+                System.out.print("\nGame is a draw!");
+                System.out.print("\n*******************************\n\n");
+        }else{
+            for (int i = 0; i < player.size(); i++) {
             if(player.get(i).getGamesWon()==highScore){
                 System.out.print("\n\n*******************************");
                 System.out.printf("%n%s is the Game winner! w/ %d matches.", player.get(i).getName(), player.get(i).getGamesWon());
@@ -116,6 +121,7 @@ public class Player_UI {
                 System.out.printf("%s won %d matches%n", player.get(i).getName(), player.get(i).getGamesWon());
             }
                 
+        }
         }
         System.out.printf("%n%n");
         
