@@ -16,6 +16,13 @@ public class Calc {
     
     //private ArrayList<Player> player;
     private String[] winnersList;
+    private int qtyOfWinners = 0;
+
+    public int getQtyOfWinners() {
+        return qtyOfWinners;
+    }
+    
+    
     
     public int getWinnersListSize(){
         
@@ -36,7 +43,7 @@ public class Calc {
     
     
     
-    public int[] getRoundWinner(int roundNumber, int numberOfPlayers, ArrayList<Player> player){
+    public void doRoundWinner(int roundNumber, int numberOfPlayers, ArrayList<Player> player){
         
         int[][] sotedByDie = new int[numberOfPlayers][6];
         int[] playerHolder1= new int[numberOfPlayers];
@@ -167,7 +174,7 @@ public class Calc {
                 }*/
         
         
-        return playerHolder1;
+        
         
     }
     
@@ -176,8 +183,12 @@ public class Calc {
         int highestAmountOfMatchWins = 0;
         
         for (int i = 0; i < player.size(); i++) {
-            if(player.get(i).getGamesWon()>highestAmountOfMatchWins)
+            if(player.get(i).getGamesWon()>highestAmountOfMatchWins){
                 highestAmountOfMatchWins=player.get(i).getGamesWon();
+                qtyOfWinners=1;}
+            else if(player.get(i).getGamesWon()==highestAmountOfMatchWins){
+                qtyOfWinners++;
+        }
         }
         
         return highestAmountOfMatchWins;
