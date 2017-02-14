@@ -19,6 +19,7 @@ public class Player implements Comparable<Player>{
 
       
 
+    //Properies
     public String getName() {
         return name;
     }
@@ -30,14 +31,17 @@ public class Player implements Comparable<Player>{
     public void setGamesWon() {
         this.gamesWon = (this.gamesWon+1);
     }
+    // end properties
 
     
 
     public Player(String name) {
         this.name = name;
-    }
+    }//end constructor
+    
+    
 
-    public int[] getGameScore(int gameNumber) {
+    public int[] getGameScore(int gameNumber) {//gets game scaores for calc class
         int[] tempGameScore;
         tempGameScore = gameScores[gameNumber];
         
@@ -46,7 +50,7 @@ public class Player implements Comparable<Player>{
     
     
     
-    public void setScore(int gameNumber, int[] gamescore){
+    public void setScore(int gameNumber, int[] gamescore){//sets scores from calc class
         
         for (int i =0; i<gamescore.length;i++) {
             
@@ -57,7 +61,7 @@ public class Player implements Comparable<Player>{
     }
 
     @Override
-	public int compareTo(Player player) {
+	public int compareTo(Player player) {//sorts game winner by score in Player_UI
 		double compareMatches = ((Player) player).getGamesWon();
 
 		// ascending order

@@ -14,16 +14,10 @@ import java.util.ArrayList;
  */
 public class Calc {
     
-    //private ArrayList<Player> player;
     private String[] winnersList;
     private int qtyOfWinners = 0;
-
-    public int getQtyOfWinners() {
-        return qtyOfWinners;
-    }
     
-    
-    
+    //properties setter getters
     public int getWinnersListSize(){
         
         return winnersList.length;
@@ -32,14 +26,14 @@ public class Calc {
     public String getMtachWinners(int arg1){
         return winnersList[arg1];
     }
-
-    public Calc() {
-    }
-
-   
-    //public Calc(ArrayList<Player> player) {
-    //    this.player = player;
-    //}
+    //end properties setter getters
+    
+    public int getQtyOfWinners() {
+        return qtyOfWinners;
+    }//end constructor
+    
+    
+    
     
     
     
@@ -90,9 +84,9 @@ public class Calc {
             for (int j = 5; j >= 0; j--) {
                 
                 
-                if(sotedByDie[i][j]>=highestQTY){
+                if(sotedByDie[i][j]>=highestQTY){// if arrays qty > highest qty it may enter
                 
-                    if(j<dieFaceValue&&sotedByDie[i][j]==highestQTY){
+                    if(j<dieFaceValue && sotedByDie[i][j]==highestQTY){ //if loop position < highest face value and its qty = highest qty exit
                         continue;
                     }
                     
@@ -100,15 +94,15 @@ public class Calc {
                     
                     case 5:
                         
-                        if(highestQTY < 5){
+                        if(highestQTY < 5){//clear previous match winners if highest qty is less than new
                             roundWinner.clear();
                         }
-                        if(dieFaceValue<j){
+                        if(dieFaceValue<j){//clear previous match winners if face value is less than new
                             roundWinner.clear();
                         }
-                        roundWinner.add(new Winner(i));
-                        highestQTY=5;
-                        dieFaceValue=(j);
+                        roundWinner.add(new Winner(i));//add new to list
+                        highestQTY=5;//set highest qty
+                        dieFaceValue=(j);// set new high facevalue
                         break;
                     case 4:
                        
@@ -157,18 +151,19 @@ public class Calc {
         
         
         
-                if(roundWinner.size()>0){
-                    winnersList= new String[roundWinner.size()];
+                //if(roundWinner.size()>0){
+                    winnersList= new String[roundWinner.size()];//sets array size can probably remove if statement
                 for (int k = 0; k < roundWinner.size(); k++) {
                     player.get(roundWinner.get(k).getRoundWinnerPlayer()).setGamesWon();
                     winnersList[k]= String.format("%nMatch #%d winner %s!", (roundNumber+1),player.get(roundWinner.get(k).getRoundWinnerPlayer()).getName());
                     //System.out.printf("%nround winner %s%n",player.get(roundWinner.get(k).getRoundWinnerPlayer()).getName());
                 }//end loop
-                }//end if
+                //}//end if
         
         
         
         
+                //console testing string
                 /*for(int i =0; i<numberOfPlayers;i++){
                    System.out.printf("%d %d %d %d %d %d%n",sotedByDie[i][0],sotedByDie[i][1],sotedByDie[i][2],sotedByDie[i][3],sotedByDie[i][4],sotedByDie[i][5]);
                 }*/
@@ -178,8 +173,8 @@ public class Calc {
         
     }
     
-    public int getGameWinner(ArrayList<Player> player){
-        //int[] playerHolder1= new int[numberOfPlayers];
+    public int getGameWinner(ArrayList<Player> player){//sets the number of game winners for if more than one player specificly
+        
         int highestAmountOfMatchWins = 0;
         
         for (int i = 0; i < player.size(); i++) {
@@ -194,13 +189,6 @@ public class Calc {
         return highestAmountOfMatchWins;
     }
 
-    /*private boolean arrayListChecker(ArrayList<RoundWinner> arg1, int arg2) {
-        for(int i = 0; i<arg1.size();i++){
-            
-            if(arg1.get(i).getRoundWinnerPlayer()==arg2)
-           return true;
-        }
-        return false;
-    }*/
+    
     
 }

@@ -33,13 +33,13 @@ public class Controller {
         int numberOfPlayers;
         
         
-        System.out.println("If you enter 1 player you will be matched\n"
-                        + "with the computer. Otherwise you'll be match\n"
-                        + "only with your friends if players > 1.\n");
+        System.out.println(" If you enter 1 player you will be matched\n"
+                        + "with the computer. Otherwise you'll be match only\n"
+                        + "with your friends if players is greater than 1.\n");
         
         
         
-        do {       
+        do {       //begin game loop
             
             System.out.print("How many players are there? > ");
             numberOfPlayers = Integer.parseInt(scan1.next());
@@ -50,7 +50,7 @@ public class Controller {
             playAgain = scan1.next();
             
             
-        } while (playAgain.equals("y") || playAgain.equals("\n"));
+        } while (playAgain.equals("y") || playAgain.equals(""));
     }
     
 }

@@ -23,11 +23,9 @@ public class Player_UI {
         Scanner scan1;
         Dice dice = new Dice();
         Calc calc_1;
-        //Player player;
-
+            
     
-    
-
+     //begin properties setter getters
     public int getNumberOfPlayers() {
         return numberOfPlayers;
     }
@@ -36,7 +34,9 @@ public class Player_UI {
         this.numberOfPlayers = numberOfPlayers;
         
     }
-
+    //end properties setter getters
+    
+    
     public Player_UI(int numberOfPlayers, Scanner scan1, ArrayList<Player> player, Calc calc_1) {
         
         this.numberOfPlayers = numberOfPlayers;
@@ -46,27 +46,27 @@ public class Player_UI {
         getNames();
         beginGame();
         getWinner();
-    }
+    }//end constructor
 
     private void getNames() {
         
         String tempName;
         
        
-        for (int i = 0; i < numberOfPlayers; i++) {
+        for (int i = 0; i < numberOfPlayers; i++) {//get players names and add them to the arraylist
             System.out.printf("Player %s, please enter your name. > ", (i+1));
             tempName = scan1.next();
             player.add(new Player(tempName));
             
         }
-        if(numberOfPlayers==1){
+        if(numberOfPlayers==1){// if # of players = 1 add computer as opponent to arraylist
             player.add(new Player("Computer"));
             System.out.println("Computer is Player "+ player.size());
         }
         System.out.println("Let's Begin.");
         
         
-    }
+    }//end getNames()
 
     private void beginGame() {
         
@@ -89,7 +89,10 @@ public class Player_UI {
             calc_1.doRoundWinner(i, tempSize, player);
             
             System.out.print("\n\n*******************************");
-            if(calc_1.getWinnersListSize()!=player.size()){
+            
+            if(calc_1.getWinnersListSize()==0){
+                System.out.printf("%nNo 'dice Of a Kind'", (i+1));
+            }else if(calc_1.getWinnersListSize()!=player.size()){
                 for(int k = 0; k<calc_1.getWinnersListSize(); k++)
                     System.out.printf(calc_1.getMtachWinners(k));
             }else{
@@ -99,19 +102,16 @@ public class Player_UI {
             System.out.print("\n*******************************\n\n");
             
         }//end outer for loop
-    }//end beginGame
+    }//end beginGame()
+    
+    
+    
 
-    private void getWinner() {
-        /*for(int i =0; i<player.size();i++){
-            if(player.get(i).getGamesWon()>0){
-                System.out.printf("%s games won = %d%n", player.get(i).getName(), player.get(i).getGamesWon());
-            }
-        }*/
-        int highScore=calc_1.getGameWinner(player);
+    private void getWinner(){
         
-        Collections.sort(player);
+        Collections.sort(player);//sort by descending order of won matches performed in Players class
         
-        Admin.doPause(2000);
+        Admin.doPause(1000);
         System.out.println("Calculating the game winner........");
         Admin.doPause(2000);
         
@@ -120,13 +120,15 @@ public class Player_UI {
                 System.out.print("\nGame is a draw!");
                 System.out.print("\n*******************************\n\n");
         }else{
+            int highScore=calc_1.getGameWinner(player);
+            
             for (int i = 0; i < player.size(); i++) {
             if(player.get(i).getGamesWon()==highScore){
                 System.out.print("\n\n*******************************");
                 System.out.printf("%n%s is the Game winner! w/ %d matches.", player.get(i).getName(), player.get(i).getGamesWon());
                 System.out.print("\n*******************************\n\n");
             }else{
-                System.out.printf("%s won %d matches%n", player.get(i).getName(), player.get(i).getGamesWon());
+                System.out.printf("*%s only won %d matches%n", player.get(i).getName(), player.get(i).getGamesWon());
             }
                 
         }
@@ -135,7 +137,7 @@ public class Player_UI {
         
         
         
-    }
+    }//end getWinner()
 
     
 

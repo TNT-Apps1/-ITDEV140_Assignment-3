@@ -22,7 +22,7 @@ public class Dice {
         
     }
     
-    public int[] rollDice(){
+    public int[] rollDice(){//get 5 random die between 1 & 6 to array
         
         Random random_1 = new Random();
         

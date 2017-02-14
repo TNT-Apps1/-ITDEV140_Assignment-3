@@ -11,12 +11,12 @@ package thompson_ofakind;
  * ITDEV 140 THUR EVE
  * ASSIGNMENT 3
  */
-public class Winner {
+public class Winner {//holds round winners original arraylist position
     
     private int roundWinnerPlayer=-1;
-    private String roundWinnerName="";
+    //private String roundWinnerName="";
 
-    public Winner(int roundWinnerPlayer, String roundWinnerName) {
+    /*public Winner(int roundWinnerPlayer, String roundWinnerName) {
         
         this.roundWinnerPlayer=roundWinnerPlayer;
         this.roundWinnerName=roundWinnerName;
@@ -25,7 +25,7 @@ public class Winner {
      public Winner( String roundWinnerName) {
         
         this.roundWinnerName=roundWinnerName;
-    }
+    }*/
 
     public Winner(int roundWinnerPlayer) {
         this.roundWinnerPlayer=roundWinnerPlayer;
@@ -41,6 +41,7 @@ public class Winner {
         this.roundWinnerPlayer = roundWinnerPlayer;
     }
 
+    /*
     public String getRoundWinnerName() {
         return roundWinnerName;
     }
@@ -48,6 +49,7 @@ public class Winner {
     public void setRoundWinnerName(String roundWinnerName) {
         this.roundWinnerName = roundWinnerName;
     }
+*/
 
     
     

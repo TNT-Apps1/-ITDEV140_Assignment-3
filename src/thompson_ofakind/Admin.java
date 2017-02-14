@@ -20,7 +20,9 @@ public class Admin {
     
     public Admin(){
         DisplayInfo();
-    }
+    }//end constructor
+    
+    
     private void DisplayInfo()
         {
             System.out.println("\n\nStudent:\tGrant Thompson");
@@ -41,7 +43,7 @@ public class Admin {
         doPause(4000);
     }
     
-    static void doPause(int arg1){
+    public static void doPause(int arg1){// made static to use throughout app
         try {
             Thread.sleep(arg1);
         } catch (InterruptedException ex) {
