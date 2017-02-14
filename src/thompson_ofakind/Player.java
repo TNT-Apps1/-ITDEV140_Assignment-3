@@ -11,12 +11,13 @@ package thompson_ofakind;
  * ITDEV 140 THUR EVE
  * ASSIGNMENT 3
  */
-public class Player {
+public class Player implements Comparable<Player>{
     
     private String name;
-    int gamesWon;
-    int[][] gameScores = new int[10][5];
-    
+    private int gamesWon;
+    private int[][] gameScores = new int[10][5];
+
+      
 
     public String getName() {
         return name;
@@ -37,8 +38,8 @@ public class Player {
     }
 
     public int[] getGameScore(int gameNumber) {
-        int[] tempGameScore = new int[5];
-        tempGameScore= gameScores[gameNumber];
+        int[] tempGameScore;
+        tempGameScore = gameScores[gameNumber];
         
                 return tempGameScore;
     }
@@ -54,7 +55,15 @@ public class Player {
         }
         
     }
-    
-    
-    
+
+    @Override
+	public int compareTo(Player player) {
+		double compareMatches = ((Player) player).getGamesWon();
+
+		// ascending order
+		// return (int) (this.gamesWon - compareMatches);
+
+		// descending order
+		return (int) (compareMatches - this.gamesWon);
+	}
 }

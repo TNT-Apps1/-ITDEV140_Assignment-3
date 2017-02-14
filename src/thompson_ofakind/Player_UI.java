@@ -6,6 +6,8 @@
 package thompson_ofakind;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -107,6 +109,12 @@ public class Player_UI {
         }*/
         int highScore=calc_1.getGameWinner(player);
         
+        Collections.sort(player);
+        
+        Admin.doPause(2000);
+        System.out.println("Calculating the game winner........");
+        Admin.doPause(2000);
+        
         if(calc_1.getQtyOfWinners()==player.size()){
             System.out.print("\n\n*******************************");
                 System.out.print("\nGame is a draw!");
@@ -124,6 +132,8 @@ public class Player_UI {
         }
         }
         System.out.printf("%n%n");
+        
+        
         
     }
 

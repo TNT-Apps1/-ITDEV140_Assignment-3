@@ -37,9 +37,13 @@ public class Admin {
         }
     
     public void goodBye(){
-        System.out.println("\n\nThanks for playing my Of a Kiind game\n\tGood Bye!");
+        System.out.println("\n\nThanks for playing my 'Of a Kind' dice game\n\tGood Bye!");
+        doPause(4000);
+    }
+    
+    static void doPause(int arg1){
         try {
-            Thread.sleep(4000);
+            Thread.sleep(arg1);
         } catch (InterruptedException ex) {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
